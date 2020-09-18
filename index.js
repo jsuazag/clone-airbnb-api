@@ -6,6 +6,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 const port = 3001
 
+// mongo connection
+require('./connection/connectionDb')
+
 // Routes
 const experiencesRoutes = require('./routes/experiences')
 
