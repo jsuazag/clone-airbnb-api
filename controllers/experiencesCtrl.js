@@ -4,23 +4,32 @@ const {
     findTop5Experiences 
 } = require('./../bussinesLogic/experiencesBL')
 
-const all = (req, res) => {
-    const response = findAllExperiences() // { experiences: [] }
-    res.json(response)
-}
-
-const top5 = (req, res) => {
-    const response = findTop5Experiences()
-    res.json(response)
-}
-
-const detail = (req, res) => {
-    const { id } = req.params
+const all = async (req, res) => {
     try {
-        const response = findExperience(id)
+        const response = await findAllExperiences() // { experiences: [] }
         res.json(response)
     } catch (error) {
-        res.status(404).send(error)
+        res.status(500).send(error)
+    }
+    
+}
+
+const top5 = async (req, res) => {
+    try {
+        const response = await findTop5Experiences()
+        res.json(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
+const detail = async (req, res) => {
+    const { id } = req.params
+    try {
+        const response = await findExperience(id)
+        res.json(response)
+    } catch (error) {
+        res.status(error.status).send(error.msg)
     }
 }
 
