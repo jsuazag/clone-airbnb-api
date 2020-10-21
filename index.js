@@ -9,6 +9,10 @@ const port = 3001
 // mongo connection
 require('./connection/connectionDb')
 
+app.get('/', (req, res) => {
+    res.json({'Status': 'Success'})
+})
+
 // Routes
 const experiencesRoutes = require('./routes/experiences')
 
