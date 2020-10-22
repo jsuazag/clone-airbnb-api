@@ -15,13 +15,11 @@ app.get('/', (req, res) => {
 
 // Routes
 const experiencesRoutes = require('./routes/experiences')
-
 app.use('/experiences', experiencesRoutes)
-/* Sample endpoints:
-    - localhost:3001/experiences
-    - localhost:3001/experiences/top5
-    - localhost:3001/experiences/detail/1
-*/
+
+const userRoutes = require('./routes/user')
+app.use('/users', userRoutes)
+
 
 app.listen(port, () => {
     console.log(`Server running ${port}`)
