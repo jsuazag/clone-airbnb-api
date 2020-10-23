@@ -20,6 +20,9 @@ app.use('/experiences', experiencesRoutes)
 const userRoutes = require('./routes/user')
 app.use('/users', userRoutes)
 
+const bookingRoutes = require('./routes/booking')
+app.use('/booking', bookingRoutes)
+
 
 app.listen(port, () => {
     console.log(`Server running ${port}`)

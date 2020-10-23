@@ -4,11 +4,11 @@ const moongose = require('mongoose')
 const { Schema } = mongoose
 
 const BookingSchema = new Schema({
-    name: String,
-    email: String,
-    phone: String,
-    booking_date: Date,
-    experience_id: String
+    booking_date_start: Date,
+    booking_date_end: Date,
+    experience_id: String,
+    user_id: String,
+    comments: String
 })
 
 const BookingModel = moongose.model('bookings', BookingSchema)
